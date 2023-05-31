@@ -1,4 +1,19 @@
 ## CRUD app with Firebase
+# TO-DO
+add login authentication
+add logout function
+prevent auto login when creating account (maybe)
+add routing between login, create account, "my posts" and "other users posts"
+find a way to put this on the web without compromising my firebase keys
+add option to change password and delete account
+add post creation
+add posts page
+add post editing
+add post deletion
+add simple css
+create "private" and "public" posts (maybe)
+
+
 #instructions:
 Construir uma aplicação React que implemente um cadastro de "Tarefas a Fazer", 
 usando como referência o aplicativo abordado nesta referência: 
@@ -9,12 +24,12 @@ aspectos e serve apenas para você ter um roteiro e tentar fazer melhor 😉
 
 A solução deve incluir os seguintes requisitos e critérios de correção:
 
-2. Desenvolver componentes em uma interface.
+1. Desenvolver componentes em uma interface.
 Componente de Login e Criação de Conta (30%).
 Componentes com os formulários de entrada de dados (60%).
 Modularize o seu código, separando os métodos de acesso ao banco de dados dos componentes de tela (90%).
 Procure otimizar o handleChange dos campos. Não crie useState para cada campo (100%).
-3. Apresentar dados dinâmicos em uma interface ReactJS
+2. Apresentar dados dinâmicos em uma interface ReactJS
 A aplicação deverá implementar Autenticação por Email pelo Firebase (30%).
 A abordagem da implementação é totalmente livre, mas com o requisito mínimo dos 4 itens do CRUD:
 Incluir e Alterar (60%).
