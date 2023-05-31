@@ -1,28 +1,27 @@
-import { useState } from 'react'
-
+import { useState, useContext } from 'react'
 import './App.css'
+import UserAccount from './UserAccount';
+/* import { ThemeProvider } from './ThemeContext'; */
 
 function App() {
-  const [count, setCount] = useState(0)
+  const darkTheme = false;
+
+  const styles = {
+    body:{
+    backgroundColor: darkTheme ? "#333333" : "white",
+    color: darkTheme ? "white" : "black",
+    width: '100vw',
+    height: "100vh",
+    padding: '15px',
+
+  }
+}
 
   return (
-    <>
-      <div>
+    <div style={styles.body}>
+    <UserAccount/>
 
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    </div>
   )
 }
 
