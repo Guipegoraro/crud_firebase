@@ -1,17 +1,17 @@
-## CRUD app with Firebase
-# TO-DO
-add login authentication
-add logout function
-prevent auto login when creating account (maybe)
-add routing between login, create account, "my posts" and "other users posts"
-find a way to put this on the web without compromising my firebase keys
-add option to change password and delete account
-add post creation
-add posts page
-add post editing
-add post deletion
-add simple css
-create "private" and "public" posts (maybe)
+# CRUD app with Firebase
+## TO-DO
+add login authentication  
+add logout function  
+prevent auto login when creating account (maybe)  
+add routing between login, create account, "my posts" and "other users posts"  
+find a way to put this on the web without compromising my firebase keys  
+add option to change password and delete account  
+add post creation  
+add posts page  
+add post editing  
+add post deletion  
+add simple css  
+create "private" and "public" posts (maybe)  
 
 
 #instructions:
