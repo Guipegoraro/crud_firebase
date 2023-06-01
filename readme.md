@@ -1,20 +1,20 @@
 # CRUD app with Firebase
 ## TO-DO
-add login authentication  
-add logout function  
+
 prevent auto login when creating account (maybe)  
-add routing between login, create account, "my posts" and "other users posts"  
-find a way to put this on the web without compromising my firebase keys  
-add option to change password and delete account  
 add post creation  
 add posts page  
 add post editing  
 add post deletion  
+find a way to organize posts
 add simple css  
+find a way to put this on the web without compromising my firebase keys  
+add option to change password and delete account  
 create "private" and "public" posts (maybe)  
+add routing between login, create account, "my posts" and "other users posts"  
 
 
-#instructions:
+# instructions:
 Construir uma aplicação React que implemente um cadastro de "Tarefas a Fazer", 
 usando como referência o aplicativo abordado nesta referência: 
 https://learning.oreilly.com/library/view/beginning-react-and/9781484278123/html/512002_1_En_2_Chapter.xhtml

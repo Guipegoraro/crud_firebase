@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Login from './Login';
 import CreateAccount from './CreateAccount';
 import { useAuth } from '../contexts/AuthContext'
-
+import { auth } from '../../firebase';
 
 
 
@@ -10,54 +10,60 @@ export default function UserAccount() {
     const [userStatus, setUserStatus] = useState({
         logged: false,
         createAccount: false,
-        userName: null,
     });
     const [errorMessage, setErrorMessage] = useState('')
     const [signIn, setSignIn] = useState(true)
-    const { signUp, currentUser } = useAuth()
     const [loading, setLoading] = useState(false)
-
-
+    const { handleSignUp, handleSignOut, handleSignIn, currentUser } = useAuth() //current user
+    //todo i feel like this code could be better, refactor it at a later stage, for now its working as intended (i hope)
+    
    async function handleCreateAccountForm(event) {
         event.preventDefault();
         setLoading(true)
         const form = event.target;
-        console.log(form.password.value)
         if ((form.password.value !== form.confirmPassword.value) || (form.email.value !== form.confirmEmail.value)){
+            setLoading(false)  
             return setErrorMessage('Email and/or password confirmation do not match')
         } 
         setErrorMessage('')
         try {
-            await signUp(form.email.value, form.password.value)
+            await handleSignUp(form.email.value, form.password.value)
+            setUserStatus({logged: true, createAccount: false})
         } catch (error) {
             setErrorMessage(`failed to create an account: ${error.message}`)
+            setLoading(false)
         }
-        setLoading(false)
-    }
-    const username = 'admin'
-    const userPassword = '123'
+        setLoading(false)   
+    } //working
 
 
 
 
-    function handleLoginForm(event) {
+    async function handleLoginForm(event) {
         event.preventDefault()
         const form = event.target
-        if (form.userName.value === username && form.password.value === userPassword){ 
-            setUserStatus({...userStatus, logged: true, userName : username,})
-            console.log('logado como admin')
-        } else {setErrorMessage('Username and/or password not found')}
-        setUserStatus({...userStatus, userName: currentUser})
-    }
+        setLoading(true)
+        try {
+            await handleSignIn(form.email.value, form.password.value);
+            setUserStatus({logged: true, createAccount: false});
+        } catch (error) {
+            setErrorMessage(`failed to login: ${error.message}`)
+            setLoading(false)
+        }
+        setLoading(false) 
+    }//working 
 
     function logOut() {
-        setUserStatus({...userStatus, logged: false, userName: null})
-        alert('loged out')
-    }
+        handleSignOut().then(setUserStatus({...userStatus, logged: false}));
+        alert('logged out')
+    } //working //todo better logout message
+
+
+
     const loggedInComponent = () => {
         return (
             <>
-            <p>Logged in as: {userStatus.userName}</p>
+            <p>Logged in as: {currentUser.email}</p>
             <button onClick={() => logOut()}>Log Out</button>
             </>
         )
@@ -72,7 +78,9 @@ export default function UserAccount() {
             </div>
         )
     }
-
+    function logStuff() {
+        console.log(auth.currentUser)
+    }
 
 
 
@@ -81,7 +89,7 @@ export default function UserAccount() {
     return (
         <div>
             { userStatus.logged ?  loggedInComponent() : logInComponent() }
-            
+            <button onClick={() => logStuff()} >logStuff</button>
 
         </div>
 

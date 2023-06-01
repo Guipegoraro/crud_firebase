@@ -1,7 +1,7 @@
-import { useState, useContext } from 'react'
+import React, { useState, useContext } from 'react'
 import '../App.css'
 import UserAccount from './UserAccount';
-import { AuthProvider } from '../contexts/AuthContext';
+import { AuthProvider, useAuth } from '../contexts/AuthContext';
 /* import { ThemeProvider } from './ThemeContext'; */
 
 function App() {
@@ -18,11 +18,13 @@ function App() {
   }
 }
 
+
+
   return (
     <AuthProvider>
     <div style={styles.body}>
     <UserAccount/>
-
+    
     </div>
     </AuthProvider>
   )
