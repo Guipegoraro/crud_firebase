@@ -1,33 +1,31 @@
-import React, { useState, useContext } from 'react'
-import '../App.css'
-import UserAccount from './UserAccount';
-import { AuthProvider, useAuth } from '../contexts/AuthContext';
-/* import { ThemeProvider } from './ThemeContext'; */
+import React, { useState, useContext, useEffect } from "react";
+import "../styles/App.css";
+import UserAccount from "./UserAccount";
+import { useAuth } from "../contexts/AuthContext";
+import PostHandler from "./PostHandler";
 
 function App() {
-  const darkTheme = false;
+  const { currentUser, handleSignOut } = useAuth();
   const styles = {
-    body:{
-    backgroundColor: darkTheme ? "#333333" : "white",
-    color: darkTheme ? "white" : "black",
-    width: '100vw',
-    height: "100vh",
-    padding: '15px',
-    display: 'flex',
-    justifyContent: "center"
-  }
-}
-
-
+    login: {
+      padding: "15px",
+      display: "flex",
+      justifyContent: "center",
+    },
+  };
+  useEffect(() => {
+    handleSignOut();
+  }, []);
 
   return (
-    <AuthProvider>
-    <div style={styles.body}>
-    <UserAccount/>
-    
+    <div>
+      <div style={styles.login}>
+        <UserAccount />
+        <br></br>
+      </div>
+      {currentUser && <PostHandler></PostHandler>}
     </div>
-    </AuthProvider>
-  )
+  );
 }
 
-export default App
+export default App;

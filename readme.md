@@ -1,13 +1,5 @@
 # CRUD app with Firebase
 ## TO-DO
-
-prevent auto login when creating account (maybe)  
-add post creation  
-add posts page  
-add post editing  
-add post deletion  
-find a way to organize posts
-add simple css  
 find a way to put this on the web without compromising my firebase keys  
 add option to change password and delete account  
 create "private" and "public" posts (maybe)  

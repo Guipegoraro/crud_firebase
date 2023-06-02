@@ -1,7 +1,7 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState, createContext } from 'react'
 import { auth } from '../../firebase';
 import { createUserWithEmailAndPassword, signOut, signInWithEmailAndPassword } from 'firebase/auth';
-const AuthContext = React.createContext()
+const AuthContext = createContext()
 
 // eslint-disable-next-line react-refresh/only-export-components
 export function useAuth() {
@@ -9,7 +9,7 @@ export function useAuth() {
 }
 
 export function AuthProvider({ children }) {
-    const [currentUser, setCurrentUser] = useState();
+    const [currentUser, setCurrentUser] = useState(false);
 
     function handleSignIn(email, password) {
         return signInWithEmailAndPassword(auth, email, password)
