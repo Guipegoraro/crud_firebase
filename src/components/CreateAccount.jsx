@@ -9,13 +9,13 @@ export default function CreateAccount({ handleCreateAccountForm, loading }) {
             <h4>Create account:</h4>
             <form className='userAuthenticationForm' onSubmit={(event) => {handleCreateAccountForm(event)}}>
                 <label htmlFor='email'>Email:</label>
-                <input type='text' id='email' name='email' />
+                <input required type='text' id='email' name='email' />
                 <label htmlFor='confirmEmail'>Confirm Email:</label>
-                <input type='text' id='confirmEmail' name='confirmEmail' />
+                <input required type='text' id='confirmEmail' name='confirmEmail' />
                 <label htmlFor='password'>Password:</label>
-                <input type='text' id='password' name='password' />
+                <input required type='text' id='password' name='password' />
                 <label htmlFor='confirmPassword'>Confirm Password:</label>
-                <input type='text' id='confirmPassword' name='confirmPassword' />
+                <input required type='text' id='confirmPassword' name='confirmPassword' />
                 <button disabled={loading} type='submit'>Confirm account creation</button>
             </form>
         </div>
