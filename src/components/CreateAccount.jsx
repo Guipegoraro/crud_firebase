@@ -1,5 +1,4 @@
-/* eslint-disable react/prop-types */
-import React from 'react'
+import React from 'react';
 
 export default function CreateAccount({ handleCreateAccountForm, loading }) {
 

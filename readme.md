@@ -4,6 +4,7 @@ find a way to put this on the web without compromising my firebase keys
 add option to change password and delete account  
 create "private" and "public" posts (maybe)  
 add routing between login, create account, "my posts" and "other users posts"  
+the code could be better organized
 
 
 # instructions:
