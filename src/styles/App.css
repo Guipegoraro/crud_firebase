@@ -1,0 +1,16 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+.userAuthenticationForm {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+}
+form {
+    padding: 10px;
+    margin: 10px;
+}
+input {
+    margin: 5px;
+}
